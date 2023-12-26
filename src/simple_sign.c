@@ -79,13 +79,13 @@ int main(int argc, const char *argv[])
 
 finish:
     if (sign)
-        free(sign);
+        Fapi_Free(sign);
     if (pubKey)
-        free(pubKey);
+        Fapi_Free(pubKey);
     if (cert)
-        free(cert);
+        Fapi_Free(cert);
     if (listPath)
-        free(listPath);
+        Fapi_Free(listPath);
     if (context)
         Fapi_Finalize(&context);
 

@@ -1,3 +1,5 @@
+*.sw[a-p]
+tags
 .swtpm/
 local/
 src/simple_sign
