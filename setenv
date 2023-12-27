@@ -1,0 +1,14 @@
+# source required env-vars
+export ROOT_DIR=$(readlink -f $(dirname ${BASH_SOURCE[0]}))
+export INSTALL_DIR=${INSTALL_DIR:-${ROOT_DIR}/local}
+export PATH=${INSTALL_DIR}/bin:${PATH}
+export MANPATH=${INSTALL_DIR}/share/man:/usr/share/man
+export LD_LIBRARY_PATH=${INSTALL_DIR}/lib
+
+unset TPM2TOOLS_TCTI
+rm -f ${INSTALL_DIR}/lib/libtss2-tcti-default.so
+
+if [ -e ${ROOT_DIR}/swtpm.pid -a ! -e ${ROOT_DIR}/tabrmd.pid ]; then
+    export TPM2TOOLS_TCTI=swtpm
+    ln -sf ${INSTALL_DIR}/lib/libtss2-tcti-swtpm.so ${INSTALL_DIR}/lib/libtss2-tcti-default.so
+fi
