@@ -11,7 +11,7 @@
     {                                \
         TSS2_RC rc = (_cmd);         \
         if (rc != TSS2_RC_SUCCESS) { \
-            printf("%s FAILED: 0x%08x [%s]\n", (_fnc), (int)rc, Tss2_RC_Decode(rc)); \
+            printf("%s() FAILED [0x%08x]: %s\n", (_fnc), (int)rc, Tss2_RC_Decode(rc)); \
             goto finish;             \
         }                            \
     }
