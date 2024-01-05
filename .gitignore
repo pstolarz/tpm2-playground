@@ -4,4 +4,4 @@
 tags
 .swtpm/
 local/
-src/simple_sign
+src/fapi_simple_sign

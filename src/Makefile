@@ -3,7 +3,7 @@
 INSTALL_DIR?=../local
 
 ALL:=\
-	  simple_sign
+	  fapi_simple_sign
 
 all: $(ALL)
 
