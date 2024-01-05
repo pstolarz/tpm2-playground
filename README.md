@@ -8,8 +8,8 @@
   * [Errata](https://trustedcomputinggroup.org/resource/errata-for-tpm-library-specification-2-0)
 * TPM 1.2
   * [Main Specification](https://trustedcomputinggroup.org/resource/tpm-main-specification)
-* TPM TSS 2
-  * [TPM TSS 2 Brief Overview](https://trustedcomputinggroup.org/resource/creating-complete-trusted-computing-ecosystem-overview-trusted-software-stack-tss-2-0)
+* TPM TSS 2.0
+  * [TPM TSS 2.0 Brief Overview](https://trustedcomputinggroup.org/resource/creating-complete-trusted-computing-ecosystem-overview-trusted-software-stack-tss-2-0)
   * [Overview and Common Structures](https://trustedcomputinggroup.org/resource/tss-overview-common-structures-specification)
   * [Feature API](https://trustedcomputinggroup.org/resource/tss-fapi)
   * [Enhanced System API](https://trustedcomputinggroup.org/resource/tcg-tss-2-0-enhanced-system-api-esapi-specification)

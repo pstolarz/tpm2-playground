@@ -1,4 +1,5 @@
 #include <malloc.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -6,6 +7,8 @@
 #include "tss2/tss2_fapi.h"
 #include "tss2/tss2_rc.h"
 #include "openssl/sha.h"
+
+#define ALWAYS_CREATE 0
 
 #define CHECK_TSS_RC(_cmd, _fnc)     \
     {                                \
@@ -31,12 +34,24 @@ int main(int argc, const char *argv[])
         Fapi_Initialize(&context, NULL),
         "Fapi_Initialize");
 
+    bool createKey = true;
     const char *signKeyPath = "/HS/SRK/SignKey";
 
     rc = Fapi_List(context,
             signKeyPath, &listPath);
 
-    if (rc != TSS2_RC_SUCCESS)
+    if (rc == TSS2_RC_SUCCESS)
+    {
+#if ALWAYS_CREATE
+        CHECK_TSS_RC(
+            Fapi_Delete(context, signKeyPath),
+            "Fapi_Delete");
+#else
+        createKey = false;
+#endif
+    }
+
+    if (createKey)
     {
         CHECK_TSS_RC(
             Fapi_CreateKey(context,
