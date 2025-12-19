@@ -1,7 +1,1 @@
-*.sw[a-p]
-*.log
-*.pid
-tags
 .swtpm/
-local/
-src/fapi_simple_sign
